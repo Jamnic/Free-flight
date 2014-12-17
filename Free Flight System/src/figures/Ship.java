@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class Ship implements Runnable {
 
 	private float xSpeed, ySpeed, zSpeed;
-	private Sphere sphere;
+	private Stellar sphere;
 
 	@Override
 	public void run() {
@@ -44,7 +44,7 @@ public class Ship implements Runnable {
 			xSpeed = ySpeed = zSpeed = 0;
 	}
 
-	public void setSphere(Sphere sphere) {
+	public void setSphere(Stellar sphere) {
 		this.sphere = sphere;
 	}
 

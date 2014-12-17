@@ -8,7 +8,7 @@ public class GameRunner {
 	public static void main(String[] args) {
 		JFrame window = new JFrame("Cube");
 		GLCapabilities caps = new GLCapabilities(null);
-		Sphere panel = new Sphere(caps);
+		Stellar panel = new Stellar(caps);
 		window.setContentPane(panel);
 		window.pack();
 		window.setLocation(50, 50);
