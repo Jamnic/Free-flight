@@ -1,51 +1,72 @@
 package figures;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public class Ship implements Runnable {
 
-	private float xSpeed, ySpeed, zSpeed;
+	private float xRotate, yRotate, zRotate;
 	private Stellar sphere;
+	private float xTranslate, yTranslate, zTranslate;
 
 	@Override
 	public void run() {
-		
+
 		long previous = System.currentTimeMillis();
-		while(true) {
+		while (true) {
 			long current = System.currentTimeMillis();
-			
+
 			if (current - previous > (1000 / 30)) {
-				sphere.rotateX += xSpeed;
-				sphere.rotateY += ySpeed;
-				sphere.rotateZ += zSpeed;
-				
+				sphere.rotateX += xRotate;
+				sphere.rotateY += yRotate;
+				sphere.rotateZ += zRotate;
+				sphere.traslateX += xTranslate;
+				sphere.traslateY += yTranslate;
+				sphere.traslateZ += zTranslate;
+
 				sphere.repaint();
 				previous = current;
 			}
-			
+
 		}
+	}
+
+	public void mouseMovent(MouseEvent e, int width, int height) {
+		int centerWidth = width / 2;
+		int centerHeight = height / 2;
+		xRotate = (e.getX() - centerWidth) / 500f;
+		yRotate = (e.getY() - centerHeight) / 500f;
+
+		System.out.println(xRotate + " " + yRotate);
 	}
 
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		if (key == KeyEvent.VK_LEFT)
-			ySpeed -= 1;
-		else if (key == KeyEvent.VK_RIGHT)
-			ySpeed += 1;
-		else if (key == KeyEvent.VK_DOWN)
-			xSpeed += 1;
-		else if (key == KeyEvent.VK_UP)
-			xSpeed -= 1;
-		else if (key == KeyEvent.VK_PAGE_UP)
-			zSpeed += 1;
-		else if (key == KeyEvent.VK_PAGE_DOWN)
-			zSpeed -= 1;
-		else if (key == KeyEvent.VK_HOME)
-			xSpeed = ySpeed = zSpeed = 0;
+		if (key == KeyEvent.VK_S) {
+			if (xTranslate != 10)
+				xTranslate += 1;
+		} else if (key == KeyEvent.VK_W) {
+			if (xTranslate != -10)
+				xTranslate -= 1;
+		} else if (key == KeyEvent.VK_A) {
+			if (zTranslate != 10)
+				zTranslate += 1;
+		} else if (key == KeyEvent.VK_D) {
+			if (zTranslate != -10)
+				zTranslate -= 1;
+		} else if (key == KeyEvent.VK_F) {
+			if (yTranslate != 10)
+				yTranslate += 1;
+		} else if (key == KeyEvent.VK_R) {
+			if (yTranslate != -10)
+				yTranslate -= 1;
+		} else if (key == KeyEvent.VK_HOME) {
+			xRotate = yRotate = zRotate = 0;
+			xTranslate = yTranslate = zTranslate = 0;
+		}
 	}
 
 	public void setSphere(Stellar sphere) {
 		this.sphere = sphere;
 	}
-
 }

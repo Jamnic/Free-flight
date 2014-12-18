@@ -15,6 +15,8 @@ public class GameRunner {
 		window.setResizable(false);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
+		ShipListener mouseListener = new ShipListener(panel);
+		window.addMouseMotionListener(mouseListener);
 		panel.requestFocusInWindow();
 	}
 }
