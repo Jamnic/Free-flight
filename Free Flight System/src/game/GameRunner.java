@@ -1,14 +1,17 @@
-package figures;
+package game;
 
 import javax.media.opengl.GLCapabilities;
 import javax.swing.JFrame;
+
+import engine.ShipListener;
+import engine.DrawEngine;
 
 public class GameRunner {
 
 	public static void main(String[] args) {
 		JFrame window = new JFrame("Cube");
 		GLCapabilities caps = new GLCapabilities(null);
-		Stellar panel = new Stellar(caps);
+		DrawEngine panel = new DrawEngine(caps);
 		window.setContentPane(panel);
 		window.pack();
 		window.setLocation(50, 50);

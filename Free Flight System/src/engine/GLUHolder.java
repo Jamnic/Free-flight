@@ -1,4 +1,4 @@
-package figures;
+package engine;
 
 import javax.media.opengl.glu.GLU;
 

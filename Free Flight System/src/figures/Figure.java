@@ -11,6 +11,8 @@ import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureData;
 import com.jogamp.opengl.util.texture.TextureIO;
 
+import engine.GLUHolder;
+
 public abstract class Figure {
 
 	protected abstract void createFigure(GLUquadric quadratic, GL2 gl);

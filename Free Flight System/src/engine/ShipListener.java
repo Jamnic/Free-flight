@@ -1,13 +1,13 @@
-package figures;
+package engine;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 public class ShipListener implements MouseMotionListener {
 
-	private Stellar stellar;
+	private DrawEngine stellar;
 
-	ShipListener(Stellar stellar) {
+	public ShipListener(DrawEngine stellar) {
 		this.stellar = stellar;
 	}
 

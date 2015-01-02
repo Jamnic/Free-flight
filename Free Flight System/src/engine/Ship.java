@@ -1,4 +1,4 @@
-package figures;
+package engine;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 public class Ship implements Runnable {
 
 	private float xRotate, yRotate, zRotate;
-	private Stellar sphere;
+	private DrawEngine sphere;
 	private float xTranslate, yTranslate, zTranslate;
 
 	@Override
@@ -20,8 +20,8 @@ public class Ship implements Runnable {
 				sphere.rotateX += xRotate;
 				sphere.rotateY += yRotate;
 				sphere.rotateZ += zRotate;
-				sphere.traslateX += xTranslate;
-				sphere.traslateY += yTranslate;
+				sphere.translateX += xTranslate;
+				sphere.translateY += yTranslate;
 				sphere.traslateZ += zTranslate;
 
 				sphere.repaint();
@@ -66,7 +66,7 @@ public class Ship implements Runnable {
 		}
 	}
 
-	public void setSphere(Stellar sphere) {
+	public void setSphere(DrawEngine sphere) {
 		this.sphere = sphere;
 	}
 }
